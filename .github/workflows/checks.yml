@@ -1,0 +1,26 @@
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  helpers:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: local/package-lock.json
+      - run: npm ci --prefix local
+      - run: npm test --prefix local
+      - run: npm audit --prefix local --omit=dev --audit-level=high
+  shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: for file in board/*.sh; do sh -n "$file"; done
+      - run: sh local/test/board-smoke.sh

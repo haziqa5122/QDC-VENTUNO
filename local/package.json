@@ -1,0 +1,17 @@
+{
+  "name": "ventuno-q-without-a-board",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "scripts": {
+    "package": "node make-qdc-package.mjs",
+    "evaluate": "node evaluate.mjs",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "adm-zip": "0.6.1"
+  }
+}

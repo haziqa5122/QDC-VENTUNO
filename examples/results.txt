@@ -1,0 +1,4 @@
+### daisy.synthetic.jpg 120
+{"result":{"classification":{"daisy":0.9,"roses":0.1}},"timing":{"classification":2,"dsp":1}}
+### roses.synthetic.jpg 110
+{"result":{"classification":{"daisy":0.8,"roses":0.2}},"timing":{"classification":3,"dsp":0}}
